@@ -9,10 +9,11 @@
        let 
            eightPi = "8Pi";
            lib = nixpkgs.lib;
+	   system = "x86_64-linux";
        in {
            nixosConfigurations = {
                ${eightPi} = lib.nixosSystem {
-                   system = "x86_64-linux";
+                   inherit system;
                    modules = [ ./configuration.nix ];
                };        
            };
