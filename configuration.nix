@@ -116,7 +116,7 @@
       jdk
       gleam 
       erlang
-      docker
+      # docker
       easyeffects
       # nvtopPackages.full
       git 
@@ -155,6 +155,8 @@
   environment.systemPackages = with pkgs; [
     nano
     wget
+    vim
+    git
     gnomeExtensions.dash-to-panel
     gnomeExtensions.appindicator
     gnomeExtensions.maximize-to-empty-workspace
@@ -186,7 +188,7 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "22.05"; # Did you read the comment?
+  system.stateVersion = "25.11"; # Did you read the comment?
 
 }
 
