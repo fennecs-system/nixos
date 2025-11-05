@@ -17,26 +17,32 @@
       ...
     }:
     let
-      eightPi = "8Pi";
       lib = nixpkgs.lib;
-      system = "x86_64-linux";
-    in
-    {
-      nixosConfigurations = {
-        ${eightPi} = lib.nixosSystem {
-          inherit system;
-          modules = [
-            ./configuration.nix
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.fennecs = ./home.nix;
-              # use home-manager.extraSpecialArgs to pass arguments to home.nix
-              # home-manager.extraSpecialArgs = { inherit system; };
-            }
-          ];
+
+      hostDirs = builtins.attrNames (builtins.readDir ./hosts);
+
+      mkHost = hostname:
+        let
+          hostSystem = import ./hosts/${hostname}/system.nix;
+        in
+        {
+          platform = hostSystem.platform or "nixos";
+          config = lib.nixosSystem {
+            system = hostSystem.system;
+            specialArgs = { 
+              inherit inputs;
+              stateVersion = hostSystem.stateVersion;
+            };
+            modules = [ ./hosts/${hostname} ];
+          };
         };
-      };
+
+      hostConfigs = lib.genAttrs hostDirs mkHost;
+      
+      nixosHosts = lib.filterAttrs (_: v: v.platform == "nixos") hostConfigs;
+  in
+    {
+      nixosConfigurations = lib.mapAttrs (_: v: v.nixos) nixosHosts;
     };
 }
+

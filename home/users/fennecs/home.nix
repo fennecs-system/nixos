@@ -56,6 +56,4 @@
       fish_add_path $HOME/.cargo/bin
     '';
   };
-
-  home.stateVersion = "25.11";
 }
