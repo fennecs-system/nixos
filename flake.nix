@@ -25,7 +25,17 @@
       nixosConfigurations = {
         ${eightPi} = lib.nixosSystem {
           inherit system;
-          modules = [ ./configuration.nix ];
+          modules = [
+            ./configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.fennecs = ./home.nix;
+              # use home-manager.extraSpecialArgs to pass arguments to home.nix
+              # home-manager.extraSpecialArgs = { inherit system; };
+            }
+          ];
         };
       };
     };
