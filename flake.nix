@@ -31,7 +31,7 @@
             system = hostSystem.system;
             specialArgs = { 
               inherit inputs;
-              stateVersion = hostSystem.stateVersion;
+              version = hostSystem.version;
             };
             modules = [ ./hosts/${hostname} ];
           };
@@ -42,7 +42,7 @@
       nixosHosts = lib.filterAttrs (_: v: v.platform == "nixos") hostConfigs;
   in
     {
-      nixosConfigurations = lib.mapAttrs (_: v: v.nixos) nixosHosts;
+      nixosConfigurations = lib.mapAttrs (_: v: v.config) nixosHosts;
     };
 }
 

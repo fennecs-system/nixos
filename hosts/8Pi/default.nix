@@ -24,8 +24,8 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    extraSpecialArgs = { inherit stateVersion; };
-    users.fennecs = import ../../home/fennecs;
+    extraSpecialArgs = { inherit version; };
+    users.fennecs = import ../../home/users/fennecs;
   };
 
   nixpkgs.config.allowUnfree = true;
