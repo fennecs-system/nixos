@@ -12,7 +12,7 @@ in
   wayland.windowManager.sway.config = {
     # override 
     keybindings = lib.mkOptionDefault {
-      "${modifier}+d" = "exec fuzzel"
+      "${modifier}+d" = "exec fuzzel";
     };
   };
 }
