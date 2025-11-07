@@ -4,9 +4,14 @@ let
 in
 {
   programs.fuzzel.enable = true; 
+
+  programs.fuzzel.settings.config = {
+    dpi-aware = true;
+  };
+
   wayland.windowManager.sway.config = {
     keybindings = {
-      "${modifier}+space" = "exec fuzzel";
+      "${modifier}+d" = "exec fuzzel";
     };
   };
 }
