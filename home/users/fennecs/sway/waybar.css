@@ -23,11 +23,16 @@ window#waybar {
 #workspaces button {
   all: initial;
   min-width: 0;
-  padding: 4px 4px;
+  box-sizing: border-box;
+  padding: 8px;  /* Equal padding on all sides */
+  aspect-ratio: 1 / 1;  /* Force square shape */
   border-color: #676767;
   border-style: outset;
   border-width: 2px;
   color: #d8cab8;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #workspaces button.hover {
