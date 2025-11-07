@@ -31,7 +31,7 @@
 
         clock = {
           interval = 1;
-          format = "{:%Y-%m-%d - %H:%M:%S}";
+          format = "{:%Y-%m-%d %H:%M:%S}";
           tooltip = true; 
         };
 
