@@ -50,6 +50,13 @@ in
         hideEdgeBorders = "smart";
       };
 
+      # credit to neo theta
+      output = {
+      "*" = {
+        bg = "${./wallpapers/xenia.png} fill";
+      };
+      };
+
       colors = {
         background = bg_color; 
         focused = {

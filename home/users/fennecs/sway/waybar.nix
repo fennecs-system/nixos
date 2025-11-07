@@ -7,13 +7,13 @@
   programs.waybar.enable = true; 
 
   programs.waybar.style = ''
-    ${builtints.readFile ./waybar.css}
+    ${builtins.readFile ./waybar.css}
   '';
 
   programs.waybar.settings = {
       mainBar = {
         layer = "top";
-        position = "top";
+        position = "bottom";
         height = 32;
 
         tray = {
