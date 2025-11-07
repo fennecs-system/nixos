@@ -11,12 +11,12 @@ in
 
   programs.fuzzel.settings.config = {
     dpi-aware = true;
-    font = "size=36";
-    colors = {
-      background = bg_color;
-      selection = selection_color;
-      text = text_color;
-    }
+    font = "'size=36'";
+    colors = "
+      background=${bg_color};
+      selection=${selection_color};
+      text=${text_color};
+    ";
   };
 
   wayland.windowManager.sway.config = {
