@@ -1,5 +1,5 @@
-{ pkgs, ...}:
-let 
+{ pkgs, ... }:
+let
   colors = import ./colors.nix;
   accent_color = colors.accent_color;
   bg_color = colors.bg_color;
@@ -15,9 +15,9 @@ in
 
   wayland.windowManager.sway = {
     enable = true;
-    
-    # use the system sway 
-    systemd.enable = true;    
+
+    # use the system sway
+    systemd.enable = true;
     wrapperFeatures.gtk = true;
 
     extraOptions = [ "--unsupported-gpu" ];
@@ -25,13 +25,13 @@ in
     # use meta/windows key
     config = rec {
       modifier = "Mod4";
-      
+
       fonts = {
         names = [ "Maple Mono NF" ];
         size = 12.0;
       };
 
-      terminal = "wezterm"; 
+      terminal = "wezterm";
 
       bars = [
         {
@@ -40,7 +40,7 @@ in
       ];
 
       gaps = {
-        smartGaps = true;
+        smartGaps = false;
         outer = 8;
         inner = 4;
       };
@@ -52,19 +52,19 @@ in
 
       # credit to neo theta
       output = {
-      "*" = {
-        bg = "${./wallpapers/xenia.png} fill";
-      };
+        "*" = {
+          bg = "${./wallpapers/xenia.png} fill";
+        };
       };
 
       colors = {
-        background = bg_color; 
+        background = bg_color;
         focused = {
           border = accent_color;
-          background = bg_color ;
+          background = bg_color;
           text = accent_color;
           indicator = accent_color;
-          childBorder = accent_color;        
+          childBorder = accent_color;
         };
         focusedInactive = {
           border = fg_color;
@@ -80,7 +80,7 @@ in
           indicator = fg_color;
           childBorder = fg_color;
         };
-        urgent = {                  
+        urgent = {
           border = urgent_color;
           background = bg_color;
           text = text_color;

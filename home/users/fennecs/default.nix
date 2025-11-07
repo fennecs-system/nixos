@@ -10,6 +10,7 @@
   home.stateVersion = version;
   fonts.fontconfig.enable = true; 
   home.packages = with pkgs; [
+    wayshot
     maple-mono.variable
     maple-mono.truetype
     maple-mono.NF-unhinted
