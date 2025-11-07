@@ -17,28 +17,37 @@
     border-style: solid;
     border-width: 2px;
     border-color: #9b9b9b;
+    margin: 4px 0px 4px 4px;
   }
 
   #workspaces button {
+    all: initial;
+    min-width: 0;
+    padding: 2px 4px;
     border-color: #676767;
     border-style: outset;
     border-width: 2px;
     color: #d8cab8;
+    margin-right: 4px;
   }
 
-  #workspaces button:hover, #workspaces button:active {
+  #workspaces button:hover {
     background-color: #141216;
     color: #9b9b9b;
   }
-  #workspaces button.focused {
+
+  #workspaces button:active {
+    background-color: #e9dbc7;
+    color: #141216;
+  }
+
+  #workspaces button.urgent {
     border-color: #d66700;
-    border-style: outset;
-    border-width: 2px;
     background-color: #fca002;
     color: #141216;
   }
 
-#clock, #cpu, #memory, #network, #pulseaudio, #tray, #mode {
-    padding: 0 8px;
-    margin: 0 2px;
+#clock, #cpu, #memory, #network, #tray, #mode {
+    padding: 2px 8px;
+    margin: 2px 2px 2px 0px;
 }

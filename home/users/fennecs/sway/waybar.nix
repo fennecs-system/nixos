@@ -31,13 +31,12 @@
 
         clock = {
           interval = 1;
-          format = "{:%Y-%m-%d %H:%M}";
-          tooltip = false; 
-        }
-
+          format = "{:%Y-%m-%d - %H:%M:%S}";
+          tooltip = true; 
+        };
 
         wireplumber = {
-          format = "{icon} {volume}";
+          format = "{icon} {volume}%";
           format-muted = " ";
           on-click = "helvum";
         };
