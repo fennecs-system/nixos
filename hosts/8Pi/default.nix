@@ -75,11 +75,11 @@
   # ssd
   services.fstrim.enable = true;
 
-  # programs.sway = {
-  #   enable = true;
-  #   wrapperFeatures.gtk = true;
-  #   extraOptions = [ "--unsupported-gpu" ];
-  # };
+  programs.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true;
+    extraOptions = [ "--unsupported-gpu" ];
+  };
 
   systemd.targets.sleep.enable = false;
   systemd.targets.suspend.enable = false;

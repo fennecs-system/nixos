@@ -11,7 +11,7 @@ in
 {
   wayland.windowManager.sway = {
     enable = true;
-
+    
     # use the system sway 
     systemd.enable = true;    
     wrapperFeatures.gtk = true;
@@ -21,6 +21,12 @@ in
     # use meta/windows key
     config = rec {
       modifier = "Mod4";
+
+      bars = [
+        {
+          command = "waybar";
+        }
+      ];
 
       gaps = {
         smartGaps = true;
