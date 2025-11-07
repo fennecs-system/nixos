@@ -14,7 +14,7 @@
       mainBar = {
         layer = "top";
         position = "bottom";
-        height = 32;
+        height = 28;
 
         tray = {
           spacing = 10;
