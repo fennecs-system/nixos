@@ -9,10 +9,12 @@ let
   placeholder_color = colors.placeholder_color;
 in
 {
-    wayland.windowManager.sway = {
+  wayland.windowManager.sway = {
     enable = true;
+
+    # use the system sway 
     systemd.enable = true;
-    wrapperFeatures.gtk = true;
+    extraOptions = [ "--unsupported-gpu" ];
 
     # use meta/windows key
     config = rec {
