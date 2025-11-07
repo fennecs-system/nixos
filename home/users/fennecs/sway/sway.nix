@@ -49,7 +49,8 @@ in
         hideEdgeBorders = "smart";
       };
 
-      keybindings = {
+      keybindings = { 
+        "${modifier}+Return" = "exec wezterm";
         "${modifier}+Shift+c" = "reload";
         "${modifier}+Shift+apostrophe" = "kill";
         "${modifier}+l" = "exec screenlock";
