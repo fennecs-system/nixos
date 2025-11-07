@@ -3,8 +3,6 @@
 {
   wayland.windowManager.sway = {
     enable = true; 
-    # system package
-    package = null;
     systemd.enable = true;
     wrapperFeatures.gtk = true;
     
@@ -13,7 +11,7 @@
     modifier = "Mod4";
    
     gaps = {
-      smartGaps = true;
+      #smartGaps = true;
       outer = 8;
       inner = 4;
     };
