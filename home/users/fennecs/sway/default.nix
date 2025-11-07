@@ -3,10 +3,10 @@
   imports = [
     ./sway.nix
     ./waybar.nix
+    ./fuzzel.nix # launcher
   ];
 
   home.packages = with pkgs; [
-    wofi
     nautilus
     dconf
     dconf-editor

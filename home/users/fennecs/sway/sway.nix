@@ -30,8 +30,6 @@ in
         size = 12.0;
       };
 
-      launcher = "wofi";
-
       terminal = "wezterm"; 
 
       bars = [
