@@ -4,11 +4,11 @@
 
   imports = [
     ./sway
+    #./firefox.nix
   ];
 
   home.stateVersion = version;
   fonts.fontconfig.enable = true; 
-
   home.packages = with pkgs; [
     maple-mono.variable
     maple-mono.truetype
