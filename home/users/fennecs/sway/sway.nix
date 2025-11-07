@@ -50,7 +50,6 @@ in
       };
 
       keybindings = {
-        keybindings = {
         "${modifier}+Shift+c" = "reload";
         "${modifier}+Shift+apostrophe" = "kill";
         "${modifier}+l" = "exec screenlock";
