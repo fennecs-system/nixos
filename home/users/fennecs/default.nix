@@ -2,6 +2,10 @@
 
 {
 
+  imports = [
+    ./sway
+  ];
+
   home.stateVersion = version;
   
   home.packages = with pkgs; [
