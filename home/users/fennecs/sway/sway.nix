@@ -13,7 +13,9 @@ in
     enable = true;
 
     # use the system sway 
-    systemd.enable = true;
+    systemd.enable = true;    
+    wrapperFeatures.gtk = true;
+
     extraOptions = [ "--unsupported-gpu" ];
 
     # use meta/windows key
