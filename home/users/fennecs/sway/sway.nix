@@ -26,6 +26,12 @@ in
     config = rec {
       modifier = "Mod4";
       
+      fonts = {
+        size = 12.0;
+      };
+
+      launcher = "wofi";
+
       terminal = "wezterm"; 
 
       bars = [
