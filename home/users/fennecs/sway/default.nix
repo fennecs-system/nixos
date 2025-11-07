@@ -8,7 +8,6 @@
   home.packages = with pkgs; [
     wofi
     nautilus
-    wezterm
     dconf
     dconf-editor
   ];

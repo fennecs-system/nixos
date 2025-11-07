@@ -9,7 +9,7 @@
         height = 26;
 
         modules-left = ["sway/workspaces" "sway/mode"];
-        modules-right = ["clock"];
+        modules-right = ["tray" "wireplumber" "clock"];
       };
   };
 }

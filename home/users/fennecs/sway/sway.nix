@@ -9,6 +9,10 @@ let
   placeholder_color = colors.placeholder_color;
 in
 {
+  home.packages = with pkgs; [
+    wezterm
+  ]
+
   wayland.windowManager.sway = {
     enable = true;
     
@@ -21,6 +25,8 @@ in
     # use meta/windows key
     config = rec {
       modifier = "Mod4";
+      
+      terminal = "wezterm"; 
 
       bars = [
         {
