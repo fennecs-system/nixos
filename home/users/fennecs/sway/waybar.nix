@@ -13,15 +13,28 @@
   programs.waybar.settings = {
       mainBar = {
         layer = "top";
-        position = "bottom";
-        height = 28;
+        position = "top";
+        height = 0;
+
+        margin-top = 12;
+        margin-bottom = 0;
+        margin-right = 12;
+        margin-left = 12;
 
         tray = {
           spacing = 10;
         };
 
         modules-left = ["sway/workspaces" "sway/mode"];
-        modules-right = ["tray" "wireplumber" "clock"];
+        modules-right = ["tray" "wireplumber" "network"];
+        modules-center = ["clock"];
+
+        clock = {
+          interval = 1;
+          format = "{:%Y-%m-%d %H:%M}";
+          tooltip = false; 
+        }
+
 
         wireplumber = {
           format = "{icon} {volume}";
