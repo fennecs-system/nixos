@@ -1,0 +1,12 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: Maple Mono NF;
+    font-size: 32px;
+    min-height: 0;
+}
+
+#clock, #cpu, #memory, #network, #pulseaudio, #tray, #mode {
+    padding: 0 8px;
+    margin: 0 2px;
+}

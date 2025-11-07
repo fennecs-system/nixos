@@ -6,11 +6,19 @@
 
   programs.waybar.enable = true; 
 
+  programs.waybar.style = ''
+    ${builtints.readFile ./waybar.css}
+  '';
+
   programs.waybar.settings = {
       mainBar = {
         layer = "top";
         position = "top";
         height = 32;
+
+        tray = {
+          spacing = 10;
+        };
 
         modules-left = ["sway/workspaces" "sway/mode"];
         modules-right = ["tray" "wireplumber" "clock"];
