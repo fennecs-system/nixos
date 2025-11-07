@@ -30,10 +30,11 @@
     color: #9b9b9b;
   }
   #workspaces button.focused {
-    border-color: #d8d8d8;
+    border-color: #f8b747;
     border-style: outset;
     border-width: 2px;
-    background-color: #141216;
+    background-color: #fca002;
+    color: #141216;
   }
 
 #clock, #cpu, #memory, #network, #pulseaudio, #tray, #mode {
