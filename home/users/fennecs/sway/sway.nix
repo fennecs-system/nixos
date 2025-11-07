@@ -27,6 +27,7 @@ in
       modifier = "Mod4";
       
       fonts = {
+        names = [ "Maple Mono Nerd Font" ];
         size = 12.0;
       };
 

@@ -7,8 +7,13 @@
   ];
 
   home.stateVersion = version;
-  
+  fonts.fontconfig.enable = true; 
+
   home.packages = with pkgs; [
+    maple-mono.variable
+    maple-mono.truetype
+    maple-mono.NF-unhinted
+    maple-mono.NF-CN-unhinted
     r2modman
     element-desktop
     firefox
