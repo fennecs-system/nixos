@@ -30,17 +30,17 @@ window#waybar {
   color: #d8cab8;
 }
 
-#workspaces button:hover {
+#workspaces button.hover {
   background-color: #332f38;
   color: #9b9b9b;
 }
 
-#workspaces button:active {
+#workspaces button.active {
   background-color: #e9dbc7;
   color: #141216;
 }
 
-#workspaces button:focused {
+#workspaces button.focused {
   background-color: #e9dbc7;
   color: #141216;
 }
