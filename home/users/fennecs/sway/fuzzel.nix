@@ -10,6 +10,9 @@ in
   };
 
   wayland.windowManager.sway.config = {
-    appLauncher = "fuzzel";
+    # override 
+    keybindings = lib.mkOptionDefault {
+      "${modifier}+d" = "exec fuzzel"
+    };
   };
 }
