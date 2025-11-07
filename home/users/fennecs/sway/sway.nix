@@ -11,7 +11,7 @@ in
 {
   home.packages = with pkgs; [
     wezterm
-  ]
+  ];
 
   wayland.windowManager.sway = {
     enable = true;
