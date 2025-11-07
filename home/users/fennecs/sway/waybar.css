@@ -6,6 +6,34 @@
     min-height: 0;
 }
 
+
+  window#waybar {
+    background: #141216;
+    color: #d8cab8;
+  }
+
+  #workspaces {
+    padding: 2px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #9b9b9b;
+  }
+
+  #workspaces button {
+    color: #d8cab8;
+  }
+
+  #workspaces button:hover, #workspaces button:active {
+    background-color: #141216;
+    color: #9b9b9b;
+  }
+  #workspaces button.focused {
+    border-color: #d8d8d8;
+    border-style: solid;
+    border-width: 2px;
+    background-color: #141216;
+  }
+
 #clock, #cpu, #memory, #network, #pulseaudio, #tray, #mode {
     padding: 0 8px;
     margin: 0 2px;
