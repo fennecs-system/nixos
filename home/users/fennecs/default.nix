@@ -7,6 +7,39 @@
     #./firefox.nix
   ];
 
+  catppuccin = {
+    enable = true;
+    flavor = "mocha";
+    accent = "pink";
+
+    fish = {
+      enable = true;
+      flavor = "mocha";
+    };
+
+    firefox = {
+      enable = true; 
+      flavor = "mocha";
+      accent = "pink";
+      force = true;
+    };
+  };
+
+
+  gtk = {
+    enable = true;
+
+    gtk3.extraConfig = {
+      gtk-application-prefer-dark-theme = true;
+      gtk-decoration-layout = ":";
+    };
+
+    gtk4.extraConfig = {
+      gtk-application-prefer-dark-theme = true;
+      gtk-decoration-layout = ":";
+    };
+  };
+
   home.stateVersion = version;
   fonts.fontconfig.enable = true; 
   home.packages = with pkgs; [

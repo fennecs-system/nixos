@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ inputs, onfig, pkgs, version, ... }:
+{ inputs, config, pkgs, version, ... }:
 let 
   swayfx = pkgs.swayfx;
 in 
@@ -11,6 +11,7 @@ in
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.home-manager
+    inputs.catppuccin.nixosModules.catppuccin
   ];
   
   system.stateVersion = version; 
@@ -28,7 +29,13 @@ in
     useGlobalPkgs = true;
     useUserPackages = true;
     extraSpecialArgs = { inherit version; };
-    users.fennecs = import ../../home/users/fennecs;
+    users.fennecs = {
+      imports =
+        [ 
+          inputs.catppuccin.homeModules.catppuccin
+          ../../home/users/fennecs
+        ];
+    };
     # this broke gdm 
     # sharedModules = [{
     #   wayland.windowManager.sway.package = swayfx;
@@ -85,7 +92,7 @@ in
     enable = true;
     wrapperFeatures.gtk = true;
     extraOptions = [ "--unsupported-gpu" ];
-    # package = swayfx;
+    package = swayfx;
   };
 
   systemd.targets.sleep.enable = false;

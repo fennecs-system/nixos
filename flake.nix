@@ -1,6 +1,9 @@
 {
   description = "woof";
   inputs = {
+    catppuccin = {
+      url ="github:catppuccin/nix";
+    };
     nixpkgs = {
       url = "github:NixOS/nixpkgs/nixos-unstable";
     };
@@ -14,6 +17,7 @@
       self,
       nixpkgs,
       home-manager,
+      catppuccin,
       ...
     }:
     let

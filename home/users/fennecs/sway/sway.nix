@@ -13,16 +13,6 @@ in
     wezterm
   ];
 
-  gtk = {
-    gtk3.extraConfig = {
-      gtk-decoration-layout = ":";
-    };
-
-    gtk4.extraConfig = {
-      gtk-decoration-layout = ":";
-    };
-  };
-
   wayland.windowManager.sway = {
     enable = true;
 
@@ -35,7 +25,7 @@ in
 
     # swayfx config
     extraConfig = ''
-      # corner_radius 10
+      corner_radius 10
       # 
       # blur enable
       # blur_passes 5
@@ -53,15 +43,12 @@ in
     config = rec {
       modifier = "Mod4";
     
-
       fonts = {
         names = [ "Maple Mono NF" ];
         size = 12.0;
       };
 
-
       terminal = "wezterm";
-
       bars = [
         {
           command = "waybar";
