@@ -13,12 +13,22 @@ in
     wezterm
   ];
 
+  gtk = {
+    gtk3.extraConfig = {
+      gtk-decoration-layout = ":";
+    };
+  };
+
   wayland.windowManager.sway = {
     enable = true;
 
     # use the system sway
     systemd.enable = true;
     wrapperFeatures.gtk = true;
+    package = null; 
+
+    checkConfig = false;
+
 
     extraOptions = [ "--unsupported-gpu" ];
 
@@ -26,6 +36,7 @@ in
     config = rec {
       modifier = "Mod4";
 
+      # swayfx
       fonts = {
         names = [ "Maple Mono NF" ];
         size = 12.0;
@@ -44,6 +55,11 @@ in
         outer = 8;
         inner = 4;
       };
+
+      blur.enable  = true;
+      shadows.enable = true;
+      corner-radius = 2;
+      
 
       window = {
         border = 1;
