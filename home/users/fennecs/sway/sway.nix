@@ -32,19 +32,23 @@ in
     wrapperFeatures.gtk = true;
     extraOptions = [ "--unsupported-gpu" ];
     # use meta/windows key
+
+    # swayfx config
     extraConfig = ''
-      blur enable
-      blur_passes 5
-      blur_noise 0.5
-      blur_radius 5
-      blur_xray disable
-      blur_saturation 1
-      blur_brightness 0.1
-      blur_contrast 0.1
-      shadows enable
-      corner_radius 8
-      default_dim_inactive 0.5
-      dim_inactive_colors.unfocused ${bg_color}
+      corner_radius 10
+
+      # 
+      # blur enable
+      # blur_passes 5
+      # blur_noise 0.5
+      # blur_radius 5
+      # blur_xray disable
+      # blur_saturation 1
+      # blur_brightness 0.1
+      # blur_contrast 0.1
+      # shadows enable
+      # default_dim_inactive 0.5
+      # dim_inactive_colors.unfocused ${bg_color}
     '';
 
     config = rec {
