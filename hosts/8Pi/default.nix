@@ -29,6 +29,7 @@ in
     useUserPackages = true;
     extraSpecialArgs = { inherit version; };
     users.fennecs = import ../../home/users/fennecs;
+    # this broke gdm 
     # sharedModules = [{
     #   wayland.windowManager.sway.package = swayfx;
     # }];
@@ -72,7 +73,7 @@ in
   # Set your time zone.
   time.timeZone = "Australia/Melbourne";
 
-  # Enable the X11 windowing system.
+  # Enable the wayland windowing system.
   services.xserver.enable = true;
 
   security.polkit.enable = true;
@@ -84,7 +85,7 @@ in
     enable = true;
     wrapperFeatures.gtk = true;
     extraOptions = [ "--unsupported-gpu" ];
-    package = swayfx;
+    # package = swayfx;
   };
 
   systemd.targets.sleep.enable = false;
