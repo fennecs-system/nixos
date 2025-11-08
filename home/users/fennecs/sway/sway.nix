@@ -20,7 +20,7 @@ in
 
     gtk4.extraConfig = {
       gtk-decoration-layout = ":";
-    }
+    };
   };
 
   wayland.windowManager.sway = {
@@ -28,13 +28,13 @@ in
 
     # use the system sway
     systemd.enable = true;
+    package = null;
     wrapperFeatures.gtk = true;
     extraOptions = [ "--unsupported-gpu" ];
-    checkConfig = false; 
     # use meta/windows key
     extraConfig = ''
       blur enable
-      blur_passes 10
+      blur_passes 5
       blur_noise 0.5
       blur_radius 5
       blur_xray disable
@@ -43,6 +43,8 @@ in
       blur_contrast 0.1
       shadows enable
       corner_radius 8
+      default_dim_inactive 0.5
+      dim_inactive_colors.unfocused ${bg_color}
     '';
 
     config = rec {

@@ -29,9 +29,9 @@ in
     useUserPackages = true;
     extraSpecialArgs = { inherit version; };
     users.fennecs = import ../../home/users/fennecs;
-    sharedModules = [{
-      wayland.windowManager.sway.package = swayfx;
-    }];
+    # sharedModules = [{
+    #   wayland.windowManager.sway.package = swayfx;
+    # }];
   };
 
   nixpkgs.config.allowUnfree = true;
