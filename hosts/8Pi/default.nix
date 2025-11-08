@@ -24,7 +24,7 @@ in
       "docker"
     ];
   };
-  
+
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
