@@ -78,6 +78,7 @@
   programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
+    package = pkgs.swayfx;
     extraOptions = [ "--unsupported-gpu" ];
   };
 
