@@ -8,6 +8,12 @@
   ];
 
   catppuccin = {
+    vscode = {
+      profiles."Default".accent = "pink";
+      profiles."Default".enable = true;
+      profiles."Default".flavor = "mocha";
+    };
+
     enable = true;
     flavor = "mocha";
     accent = "pink";
@@ -24,6 +30,8 @@
       force = true;
     };
   };
+
+
 
 
   gtk = {
