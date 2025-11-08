@@ -52,9 +52,9 @@ window#waybar {
   color: #141216;
 }
 
-#clock, #cpu, #memory, #network, #tray, #mode {
+#clock, #cpu, #memory, #network, #tray, #mode, #wireplumber {
   padding: 2px 8px;
-  margin: 2px 2px 2px 0px;
+  margin: 4px 4px 4px 4px;
   border-style: solid;
   border-width: 2px;
   border-color: #9b9b9b;
