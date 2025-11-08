@@ -17,6 +17,10 @@ in
     gtk3.extraConfig = {
       gtk-decoration-layout = ":";
     };
+
+    gtk4.extraConfig = {
+      gtk-decoration-layout = ":";
+    }
   };
 
   wayland.windowManager.sway = {
@@ -25,22 +29,31 @@ in
     # use the system sway
     systemd.enable = true;
     wrapperFeatures.gtk = true;
-    package = null; 
-
-    checkConfig = false;
-
-
     extraOptions = [ "--unsupported-gpu" ];
-
+    checkConfig = false; 
     # use meta/windows key
+    extraConfig = ''
+      blur enable
+      blur_passes 10
+      blur_noise 0.5
+      blur_radius 5
+      blur_xray disable
+      blur_saturation 1
+      blur_brightness 0.1
+      blur_contrast 0.1
+      shadows enable
+      corner_radius 8
+    '';
+
     config = rec {
       modifier = "Mod4";
+    
 
-      # swayfx
       fonts = {
         names = [ "Maple Mono NF" ];
         size = 12.0;
       };
+
 
       terminal = "wezterm";
 
@@ -54,13 +67,8 @@ in
         smartGaps = false;
         outer = 8;
         inner = 4;
-      };
-
-      blur.enable  = true;
-      shadows.enable = true;
-      corner-radius = 2;
+      };        
       
-
       window = {
         border = 1;
         hideEdgeBorders = "smart";

@@ -3,7 +3,9 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { inputs, onfig, pkgs, version, ... }:
-
+let 
+  swayfx = pkgs.swayfx;
+in 
 {
   imports = [
     # Include the results of the hardware scan.
@@ -27,6 +29,9 @@
     useUserPackages = true;
     extraSpecialArgs = { inherit version; };
     users.fennecs = import ../../home/users/fennecs;
+    sharedModules = [{
+      wayland.windowManager.sway.package = swayfx;
+    }];
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -77,9 +82,9 @@
 
   programs.sway = {
     enable = true;
-    package = pkgs.swayfx;
     wrapperFeatures.gtk = true;
     extraOptions = [ "--unsupported-gpu" ];
+    package = swayfx;
   };
 
   systemd.targets.sleep.enable = false;
