@@ -26,27 +26,7 @@ in
     # swayfx config
     extraConfig = ''
       corner_radius 10
-      
-      #default_border pixel 1px
-      #default_floating_border pixel 1px 
-      
-      smart_corner_radius on
-
-      for_window [app_id="firefox"] corner_radius 0
-      for_window [app_id="org.mozilla.firefox"] corner_radius 0
-      for_window [app_id="org.telegram.desktop"] corner_radius 0
-       
-      # blur enable
-      # blur_passes 5
-      # blur_noise 0.5
-      # blur_radius 5
-      # blur_xray disable
-      # blur_saturation 1
-      # blur_brightness 0.1
-      # blur_contrast 0.1
-      # shadows enable
-      # default_dim_inactive 0.5
-      # dim_inactive_colors.unfocused ${bg_color}
+      shadows enable
     '';
 
     config = rec {
@@ -71,7 +51,7 @@ in
       };        
       
       window = {
-        #border = 1;
+        border = 1;
         hideEdgeBorders = "smart";
       };
 
