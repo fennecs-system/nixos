@@ -28,6 +28,17 @@
       flavor = "mocha";
     };
 
+    sway = {
+      enable = true;
+      flavor = "mocha";
+    };
+
+    wezterm = {
+      enable = true;
+      flavor = "mocha";
+      apply =  true;
+    };
+
     fish = {
       enable = true;
       flavor = "mocha";
@@ -48,7 +59,7 @@
   };
 
   programs.firefox.enable = true;
-
+  programs.flameshot.enable = true;
   programs.vesktop.enable = true;
 
   programs.vscode = {

@@ -1,13 +1,5 @@
 { pkgs, lib, ... }:
 let
-  colors = import ./colors.nix;
-  accent_color = colors.accent_color;
-  bg_color = colors.bg_color;
-  text_color = colors.text_color;
-  fg_color = colors.fg_color;
-  urgent_color = colors.urgent_color;
-  placeholder_color = colors.placeholder_color;
-
   switcher = pkgs.writeShellScriptBin "switcher" ''
     #!/bin/bash
     regular_windows=$(swaymsg -t get_tree | jq -r '.nodes[1].nodes[].nodes[] | .. | (.id|tostring) + " " + .name?' | grep -e "[0-9]* ."  )
@@ -25,8 +17,12 @@ let
   '';
 in
 {
+
+  programs.wezterm = {
+    enable = true;
+  };
+  
   home.packages = with pkgs; [
-    wezterm
     jq
   ];
 
@@ -87,43 +83,43 @@ in
         "${modifier}+g" = "exec ${switcher}/bin/switcher";
       };
 
-      colors = {
-        background = bg_color;
-        focused = {
-          border = accent_color;
-          background = bg_color;
-          text = accent_color;
-          indicator = accent_color;
-          childBorder = accent_color;
-        };
-        focusedInactive = {
-          border = fg_color;
-          background = bg_color;
-          text = text_color;
-          indicator = fg_color;
-          childBorder = fg_color;
-        };
-        unfocused = {
-          border = fg_color;
-          background = bg_color;
-          text = text_color;
-          indicator = fg_color;
-          childBorder = fg_color;
-        };
-        urgent = {
-          border = urgent_color;
-          background = bg_color;
-          text = text_color;
-          indicator = urgent_color;
-          childBorder = urgent_color;
-        };
-        placeholder = {
-          border = placeholder_color;
-          background = bg_color;
-          text = text_color;
-          indicator = placeholder_color;
-          childBorder = placeholder_color;
-        };
+    colors = {
+      background = "$base";
+      focused = {
+        border = "$mauve";
+        background = "$base";
+        text = "$text";
+        indicator = "$mauve";
+        childBorder = "$mauve";
+      };
+      focusedInactive = {
+        border = "$surface0";
+        background = "$base";
+        text = "$text";
+        indicator = "$surface0";
+        childBorder = "$surface0";
+      };
+      unfocused = {
+        border = "$surface0";
+        background = "$base";
+        text = "$subtext0";
+        indicator = "$surface0";
+        childBorder = "$surface0";
+      };
+      urgent = {
+        border = "$peach";
+        background = "$base";
+        text = "$text";
+        indicator = "$peach";
+        childBorder = "$peach";
+      };
+      placeholder = {
+        border = "$overlay0";
+        background = "$base";
+        text = "$subtext0";
+        indicator = "$overlay0";
+        childBorder = "$overlay0";
+      };
       };
     };
   };

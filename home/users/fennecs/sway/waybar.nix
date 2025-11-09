@@ -25,7 +25,7 @@
         };
 
         modules-left = ["sway/workspaces" "sway/mode"];
-        modules-right = ["tray" "wireplumber" "network"];
+        modules-right = ["tray" "wireplumber" "network" "cpu" "memory"];
         modules-center = ["clock"];
 
         clock = {
