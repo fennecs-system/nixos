@@ -27,8 +27,10 @@ in
     extraConfig = ''
       corner_radius 10
       
-      default_border pixel 1px
-      default_floating_border pixel 1px 
+      #default_border pixel 1px
+      #default_floating_border pixel 1px 
+      
+      smart_corner_radius on
 
       for_window [app_id="firefox"] corner_radius 0
       for_window [app_id="org.mozilla.firefox"] corner_radius 0
