@@ -59,7 +59,6 @@
   };
 
   programs.firefox.enable = true;
-  programs.flameshot.enable = true;
   programs.vesktop.enable = true;
 
   programs.vscode = {
@@ -109,6 +108,7 @@
   home.stateVersion = version;
   fonts.fontconfig.enable = true;
   home.packages = with pkgs; [
+    flameshot
     maple-mono.variable
     maple-mono.truetype
     maple-mono.NF-unhinted
