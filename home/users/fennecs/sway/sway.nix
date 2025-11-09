@@ -26,6 +26,8 @@ in
     # swayfx config
     extraConfig = ''
       corner_radius 8
+      
+      layer_effects "waybar" corner_radius 8
 
       default_border pixel 1px
       default_floating_border pixel 1px    
