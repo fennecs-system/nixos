@@ -27,9 +27,13 @@ in
     extraConfig = ''
       corner_radius 10
       
-      default_border none
-      default_floating_border none
-      # 
+      default_border pixel 1px
+      default_floating_border pixel 1px 
+
+      for_window [app_id="firefox"] corner_radius 0
+      for_window [app_id="org.mozilla.firefox"] corner_radius 0
+      for_window [app_id="org.telegram.desktop"] corner_radius 0
+       
       # blur enable
       # blur_passes 5
       # blur_noise 0.5
@@ -65,7 +69,7 @@ in
       };        
       
       window = {
-        border = 1;
+        #border = 1;
         hideEdgeBorders = "smart";
       };
 
