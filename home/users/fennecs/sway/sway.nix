@@ -26,7 +26,6 @@ in
     # swayfx config
     extraConfig = ''
       corner_radius 8
-      shadows enable
 
       default_border pixel 1px
       default_floating_border pixel 1px    
