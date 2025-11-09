@@ -32,7 +32,7 @@
         clock = {
           interval = 1;
           format = "{:%Y-%m-%d %H:%M:%S}";
-          tooltip = true; 
+          tooltip = false; 
         };
 
         wireplumber = {
