@@ -4,12 +4,17 @@
     font-size: 20px;
     min-height: 0;
     padding: 0;
+    border-radius: 8px;
 }
 
 window#waybar {
-  background: #141216;
-  border: 2px solid #676767;
+  background: transparent;
   color: #d8cab8;
+}
+
+#waybar {
+  background: #141216;  
+  border: 2px solid #676767;
   border-radius: 8px;
 }
 
@@ -18,8 +23,8 @@ window#waybar {
   /* border-style: solid;
   border-width: 2px;
   border-color: #9b9b9b; */
-  margin: 6px 0px 8px 8px;
-  border-radius: 8px;
+  margin: 8px 8px 8px 8px;
+  border-radius: 6px;
 }
 
 #workspaces button {
@@ -31,7 +36,7 @@ window#waybar {
   border-style: outset;
   border-width: 2px;
   color: #d8cab8;
-  border-radius: 8px;
+  border-radius: 6px;
   margin-right: 5px;
 }
 
@@ -58,9 +63,9 @@ window#waybar {
 
 #clock, #cpu, #memory, #network, #tray, #mode, #wireplumber {
   padding: 2px 8px;
-  margin: 6px 6px 6px 0px;
+  margin: 8px 8px 8px 8px;
   border-style: solid;
   border-width: 2px;
   border-color: #9b9b9b;
-  border-radius: 8px;
+  border-radius: 6px;
 }
