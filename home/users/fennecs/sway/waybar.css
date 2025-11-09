@@ -26,7 +26,7 @@ window#waybar {
 
 #workspaces button {
   all: initial;
-  min-width: 1.6em;
+  min-width: 2.1em;
   min-height: 1.6em;  
   padding: 0.4em 0.4em;  
   border-color: #676767;
