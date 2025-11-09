@@ -2,10 +2,16 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ inputs, config, pkgs, version, ... }:
-let 
+{
+  inputs,
+  config,
+  pkgs,
+  version,
+  ...
+}:
+let
   swayfx = pkgs.swayfx;
-in 
+in
 {
   imports = [
     # Include the results of the hardware scan.
@@ -13,8 +19,8 @@ in
     inputs.home-manager.nixosModules.home-manager
     inputs.catppuccin.nixosModules.catppuccin
   ];
-  
-  system.stateVersion = version; 
+
+  system.stateVersion = version;
 
   users.users.fennecs = {
     isNormalUser = true;
@@ -30,13 +36,12 @@ in
     useUserPackages = true;
     extraSpecialArgs = { inherit version; };
     users.fennecs = {
-      imports =
-        [ 
-          inputs.catppuccin.homeModules.catppuccin
-          ../../home/users/fennecs
-        ];
+      imports = [
+        inputs.catppuccin.homeModules.catppuccin
+        ../../home/users/fennecs
+      ];
     };
-    # this broke gdm 
+    # this broke gdm
     # sharedModules = [{
     #   wayland.windowManager.sway.package = swayfx;
     # }];
@@ -84,7 +89,7 @@ in
   services.xserver.enable = true;
 
   security.polkit.enable = true;
-  
+
   # ssd
   services.fstrim.enable = true;
 

@@ -36,7 +36,7 @@
     wezterm = {
       enable = true;
       flavor = "mocha";
-      apply =  true;
+      apply = true;
     };
 
     fish = {
