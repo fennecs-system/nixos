@@ -23,6 +23,11 @@
     flavor = "mocha";
     accent = "pink";
 
+    waybar = {
+      enable = true;
+      flavor = "mocha";
+    };
+
     fish = {
       enable = true;
       flavor = "mocha";

@@ -8,9 +8,9 @@
 }
 
 window#waybar {
-  color: #d8cab8;  
-  background: #141216;  
-  border: 2px solid #676767;
+  color: @text;  
+  background: @base;  
+  border: 2px solid @mauve;
   border-radius: 8px;
 
 }
@@ -21,7 +21,7 @@ window#waybar {
   border-width: 2px;
   border-color: #9b9b9b; */
   margin: 8px 8px 8px 8px;
-  border-radius: 6px;
+  border-radius: 4px;
 }
 
 #workspaces button {
@@ -29,33 +29,33 @@ window#waybar {
   min-width: 2.1em;
   min-height: 1.6em;  
   padding: 0.4em 0.4em;  
-  border-color: #676767;
+  border-color: @mauve;
   border-style: outset;
   border-width: 2px;
-  color: #d8cab8;
-  border-radius: 6px;
+  color: @text;
+  border-radius: 4px;
   margin-right: 5px;
 }
 
 #workspaces button.hover {
-  background-color: #332f38;
-  color: #9b9b9b;
+  background-color: @surface0;
+  color: @lavender;
 }
 
 #workspaces button.active {
-  background-color: #e9dbc7;
-  color: #141216;
+  background-color: @pink;
+  color: @base;
 }
 
 #workspaces button.focused {
-  background-color: #e9dbc7;
-  color: #141216;
+  background-color: @pink;
+  color: @base;
 }
 
 #workspaces button.urgent {
-  border-color: #d66700;
-  background-color: #fca002;
-  color: #141216;
+  border-color: @maroon;
+  background-color: @peach;
+  color: @base;
 }
 
 #clock, #cpu, #memory, #network, #tray, #mode, #wireplumber {
@@ -63,6 +63,6 @@ window#waybar {
   margin: 8px 8px 8px 8px;
   border-style: solid;
   border-width: 2px;
-  border-color: #9b9b9b;
-  border-radius: 6px;
+  border-color: @lavender;
+  border-radius: 4px;
 }

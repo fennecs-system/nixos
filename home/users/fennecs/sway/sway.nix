@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 let
   colors = import ./colors.nix;
   accent_color = colors.accent_color;
@@ -7,10 +7,27 @@ let
   fg_color = colors.fg_color;
   urgent_color = colors.urgent_color;
   placeholder_color = colors.placeholder_color;
+
+  switcher = pkgs.writeShellScriptBin "switcher" ''
+    #!/bin/bash
+    regular_windows=$(swaymsg -t get_tree | jq -r '.nodes[1].nodes[].nodes[] | .. | (.id|tostring) + " " + .name?' | grep -e "[0-9]* ."  )
+    floating_windows=$(swaymsg -t get_tree | jq '.nodes[1].nodes[].floating_nodes[] | (.id|tostring) + " " + .name?'| grep -e "[0-9]* ." | tr -d '"')
+    enter=$'\n'
+    if [[ $regular_windows && $floating_windows ]]; then
+      all_windows="$regular_windows$enter$floating_windows"
+    elif [[ $regular_windows ]]; then
+      all_windows=$regular_windows
+    else
+      all_windows=$floating_windows
+    fi
+    selected=$(echo "$all_windows" | fuzzel --dmenu | awk '{print $1}')
+    swaymsg [con_id="$selected"] focus
+  '';
 in
 {
   home.packages = with pkgs; [
     wezterm
+    jq
   ];
 
   wayland.windowManager.sway = {
@@ -65,6 +82,11 @@ in
           bg = "${./wallpapers/xenia.png} fill";
         };
       };
+
+      keybindings = lib.mkOptionDefault {
+      "${modifier}+g" = "exec ${switcher}/bin/switcher";
+      };
+
 
       colors = {
         background = bg_color;
