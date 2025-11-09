@@ -43,7 +43,7 @@ in
     # swayfx config
     extraConfig = ''
       corner_radius 8
-      
+
       layer_effects "waybar" corner_radius 8
 
       default_border pixel 1px
@@ -52,7 +52,7 @@ in
 
     config = rec {
       modifier = "Mod4";
-    
+
       fonts = {
         names = [ "Maple Mono NF" ];
         size = 12.0;
@@ -69,8 +69,8 @@ in
         smartGaps = false;
         outer = 8;
         inner = 4;
-      };        
-      
+      };
+
       window = {
         border = 1;
         hideEdgeBorders = "smart";
@@ -84,9 +84,8 @@ in
       };
 
       keybindings = lib.mkOptionDefault {
-      "${modifier}+g" = "exec ${switcher}/bin/switcher";
+        "${modifier}+g" = "exec ${switcher}/bin/switcher";
       };
-
 
       colors = {
         background = bg_color;
