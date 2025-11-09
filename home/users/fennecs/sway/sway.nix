@@ -26,6 +26,9 @@ in
     # swayfx config
     extraConfig = ''
       corner_radius 10
+      
+      default_border none
+      default_floating_border none
       # 
       # blur enable
       # blur_passes 5

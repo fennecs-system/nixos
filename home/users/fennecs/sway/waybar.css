@@ -14,9 +14,9 @@ window#waybar {
 
 #workspaces {
   /* padding-top: 2px; */
-  border-style: solid;
+  /* border-style: solid;
   border-width: 2px;
-  border-color: #9b9b9b;
+  border-color: #9b9b9b; */
   margin: 4px 4px 4px 4px;
 }
 
@@ -29,6 +29,8 @@ window#waybar {
   border-style: outset;
   border-width: 2px;
   color: #d8cab8;
+  border-radius: 4px;
+  margin-right: 5px;
 }
 
 #workspaces button.hover {
