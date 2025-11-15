@@ -133,12 +133,9 @@ in
     libvirtd = {
       enable = true;
     };
-    docker = {
-      enable = true;
-    };
-    spiceUSBRedirection.enable = true;
+    # spiceUSBRedirection.enable = true;
   };
-  services.spice-vdagentd.enable = true;
+  # services.spice-vdagentd.enable = true;
 
   programs.gamemode.enable = true;
   programs.steam.enable = true;
