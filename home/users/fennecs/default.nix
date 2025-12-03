@@ -108,6 +108,7 @@
   home.stateVersion = version;
   fonts.fontconfig.enable = true;
   home.packages = with pkgs; [
+    unofficial-homestuck-collection 
     flameshot
     maple-mono.variable
     maple-mono.truetype

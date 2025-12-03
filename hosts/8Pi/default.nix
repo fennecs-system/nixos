@@ -100,6 +100,7 @@ in
     package = swayfx;
   };
 
+
   systemd.targets.sleep.enable = false;
   systemd.targets.suspend.enable = false;
   systemd.targets.hibernate.enable = false;
@@ -111,8 +112,8 @@ in
 
   security.rtkit.enable = true;
   # Enable sound.
+  
   services.pulseaudio.enable = false;
-
   services.flatpak.enable = true;
 
   services.pipewire = {
@@ -122,6 +123,7 @@ in
       support32Bit = true;
     };
     pulse.enable = true;
+    jack.enable = true;
   };
 
   services.mullvad-vpn.enable = true;
@@ -154,6 +156,7 @@ in
 
   environment.systemPackages = with pkgs; [
     nano
+    reaper
     wget
     vim
     git
@@ -174,6 +177,7 @@ in
       gnome-tour
       gnome-music
       cheese
+      orca
     ]
   );
 
