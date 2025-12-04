@@ -79,6 +79,7 @@
             justusadam.language-haskell
             haskell.haskell
             github.copilot
+            ziglang.vscode-zig
             catppuccin.catppuccin-vsc
             catppuccin.catppuccin-vsc-icons
           ];
@@ -108,7 +109,8 @@
   home.stateVersion = version;
   fonts.fontconfig.enable = true;
   home.packages = with pkgs; [
-    unofficial-homestuck-collection 
+    unofficial-homestuck-collection
+    zig
     flameshot
     maple-mono.variable
     maple-mono.truetype
