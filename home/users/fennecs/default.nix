@@ -64,9 +64,9 @@
   programs.vscode = {
     enable = true;
     package = pkgs.symlinkJoin {
-      name = "vscode-with-extensions";
-      pname = "vscode";
-      version = pkgs.vscode.version;
+      name = "vscodium-with-extensions";
+      pname = "vscodium";
+      version = pkgs.vscodium.version;
       paths = [
         (pkgs.vscode-with-extensions.override {
           vscodeExtensions = with pkgs.vscode-extensions; [
