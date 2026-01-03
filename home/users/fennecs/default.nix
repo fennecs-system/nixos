@@ -69,6 +69,7 @@
       version = pkgs.vscodium.version;
       paths = [
         (pkgs.vscode-with-extensions.override {
+	  vscode = pkgs.vscodium;
           vscodeExtensions = with pkgs.vscode-extensions; [
             jnoortheen.nix-ide
             ms-python.python
@@ -87,7 +88,7 @@
       ];
       buildInputs = [ pkgs.makeWrapper ];
       postBuild = ''
-        wrapProgram $out/bin/code --add-flags "--disable-gpu"
+        wrapProgram $out/bin/codium --add-flags "--disable-gpu"
       '';
     };
   };
@@ -121,7 +122,8 @@
     telegram-desktop
     ghc
     vim
-    mpv
+    vlc 
+    qbittorrent
     perf-tools
     perf
     unzip
