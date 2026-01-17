@@ -1,12 +1,15 @@
 {
   description = "woof";
   inputs = {
+    
     catppuccin = {
       url ="github:catppuccin/nix";
     };
+
     nixpkgs = {
       url = "github:NixOS/nixpkgs/nixos-unstable";
     };
+
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -22,8 +25,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.lix.follows = "lix";
     };
-
-
   };
   outputs =
     inputs@{

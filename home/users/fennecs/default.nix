@@ -110,6 +110,7 @@
   home.stateVersion = version;
   fonts.fontconfig.enable = true;
   home.packages = with pkgs; [
+    signal-desktop
     unofficial-homestuck-collection
     zig
     flameshot
