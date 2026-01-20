@@ -61,8 +61,6 @@
   programs.firefox.enable = true;
   programs.vesktop.enable = true;
 
-  services.gnome-keyring.enable = true;	
-
   programs.vscode = {
     enable = true;
     package = pkgs.symlinkJoin {
@@ -71,7 +69,7 @@
       version = pkgs.vscodium.version;
       paths = [
         (pkgs.vscode-with-extensions.override {
-	  vscode = pkgs.vscodium;
+	        vscode = pkgs.vscodium;
           vscodeExtensions = with pkgs.vscode-extensions; [
             jnoortheen.nix-ide
             ms-python.python
@@ -112,7 +110,15 @@
   home.stateVersion = version;
   fonts.fontconfig.enable = true;
   home.packages = with pkgs; [
-    signal-desktop
+    (symlinkJoin {
+      name = "signal-desktop";
+      paths = [ signal-desktop ];
+      buildInputs = [ makeWrapper ];
+      postBuild = ''
+        wrapProgram $out/bin/signal-desktop \
+          --add-flags "--password-store=gnome-libsecret"
+      '';
+    })
     unofficial-homestuck-collection
     zig
     flameshot
@@ -125,7 +131,8 @@
     telegram-desktop
     ghc
     vim
-    vlc 
+    vlc
+    gcr
     qbittorrent
     perf-tools
     perf
