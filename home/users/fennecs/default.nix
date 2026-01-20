@@ -61,6 +61,8 @@
   programs.firefox.enable = true;
   programs.vesktop.enable = true;
 
+  services.gnome-keyring.enable = true;	
+
   programs.vscode = {
     enable = true;
     package = pkgs.symlinkJoin {
