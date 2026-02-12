@@ -72,6 +72,7 @@
 	        vscode = pkgs.vscodium;
           vscodeExtensions = with pkgs.vscode-extensions; [
             jnoortheen.nix-ide
+            elixir-lsp.vscode-elixir-ls
             ms-python.python
             gleam.gleam
             ms-vscode-remote.remote-containers
@@ -79,7 +80,6 @@
             ms-vscode.hexeditor
             justusadam.language-haskell
             haskell.haskell
-            github.copilot
             ziglang.vscode-zig
             catppuccin.catppuccin-vsc
             catppuccin.catppuccin-vsc-icons
@@ -119,6 +119,7 @@
           --add-flags "--password-store=gnome-libsecret"
       '';
     })
+    claude-code
     unofficial-homestuck-collection
     zig
     flameshot
