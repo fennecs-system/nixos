@@ -16,7 +16,7 @@
   hardware.nvidia.open = true; 
   hardware.nvidia.modesetting.enable = true;
   hardware.nvidia.prime.offload.enable = lib.mkForce false;
-  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.beta;  
+  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.latest;  
 
   boot.initrd.availableKernelModules = [ "ahci" "xhci_pci" "ehci_pci" "nvme" "usbhid" "usb_storage" "sd_mod"];
   boot.initrd.kernelModules = [ ];

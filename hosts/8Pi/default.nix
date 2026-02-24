@@ -48,9 +48,6 @@ in
   };
 
   nixpkgs.config.allowUnfree = true;
-
-  #nixpkgs.config.cudaSupport = true;
-
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
@@ -138,7 +135,6 @@ in
     };
     # spiceUSBRedirection.enable = true;
   };
-  # services.spice-vdagentd.enable = true;
 
   programs.gamemode.enable = true;
   programs.steam.enable = true;
