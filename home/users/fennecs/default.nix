@@ -146,7 +146,7 @@
     easyeffects
     git
     haskellPackages.pointfree
-    krita
+    # krita
   ];
 
   # You can also set your shell in Home Manager
