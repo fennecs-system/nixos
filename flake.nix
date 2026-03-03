@@ -10,6 +10,11 @@
       url = "github:NixOS/nixpkgs/nixos-unstable";
     };
 
+    microvm = {
+      url = "github:microvm-nix/microvm.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -34,6 +39,7 @@
       nixpkgs,
       home-manager,
       catppuccin,
+      microvm
       ...
     }:
     let
@@ -56,6 +62,7 @@
             modules = [ 
               ./hosts/${hostname} 
               lix-module.nixosModules.default  
+              ./machines/microvm.nix
             ];
           };
         };
