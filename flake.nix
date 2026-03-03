@@ -39,7 +39,7 @@
       nixpkgs,
       home-manager,
       catppuccin,
-      microvm
+      microvm,
       ...
     }:
     let
