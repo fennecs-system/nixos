@@ -1,7 +1,10 @@
 {
   description = "woof";
   inputs = {
-    
+    nixpak = {
+      url = "github:nixpak/nixpak";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     catppuccin = {
       url ="github:catppuccin/nix";
     };

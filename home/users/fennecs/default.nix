@@ -2,6 +2,7 @@
   config,
   pkgs,
   version,
+  inputs,
   ...
 }:
 
@@ -9,6 +10,7 @@
 
   imports = [
     ./sway
+    ./telegram.nix
     #./firefox.nix
   ];
 
@@ -143,7 +145,7 @@
     gleam
     nixfmt
     erlang
-    easyeffects
+    # easyeffects
     git
     haskellPackages.pointfree
     # krita
