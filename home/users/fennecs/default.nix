@@ -131,7 +131,6 @@
     maple-mono.NF-CN-unhinted
     r2modman
     element-desktop
-    telegram-desktop
     ghc
     vim
     vlc

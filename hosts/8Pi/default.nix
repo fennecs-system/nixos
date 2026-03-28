@@ -34,7 +34,7 @@ in
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    extraSpecialArgs = { inherit version; };
+    extraSpecialArgs = { inherit version inputs; };
     users.fennecs = {
       imports = [
         inputs.catppuccin.homeModules.catppuccin
