@@ -1,4 +1,9 @@
-{ pkgs, inputs, config, ... }:
+{
+  pkgs,
+  inputs,
+  config,
+  ...
+}:
 let
   mkNixPak = inputs.nixpak.lib.nixpak {
     inherit (pkgs) lib;
@@ -6,33 +11,40 @@ let
   };
 
   telegram = mkNixPak {
-    config = { sloth, ... }: {
-      app.package = pkgs.telegram-desktop;
+    config =
+      { sloth, ... }:
+      {
+        app.package = pkgs.telegram-desktop;
 
-      bubblewrap = {
-        network = true;
+        bubblewrap = {
+          network = true;
 
-        bind.rw = [
-          (sloth.concat' sloth.homeDir "/.local/share/TelegramDesktop")
-          (sloth.concat' sloth.homeDir "/Downloads")
-        ];
+          bind.rw = [
+            (sloth.concat' sloth.homeDir "/.local/share/TelegramDesktop")
+            (sloth.concat' sloth.homeDir "/Downloads")
+          ];
 
-        bind.ro = [
-          (sloth.concat' sloth.homeDir "/.config/fontconfig")
-          (sloth.concat' sloth.homeDir "/.config/gtk-3.0")
-          (sloth.concat' sloth.homeDir "/.config/gtk-4.0")
-          "/etc/ssl/certs"
-          "/etc/fonts"
-        ];
+          bind.ro = [
+            (sloth.concat' sloth.homeDir "/.config/fontconfig")
+            (sloth.concat' sloth.homeDir "/.config/gtk-3.0")
+            (sloth.concat' sloth.homeDir "/.config/gtk-4.0")
+            "/etc/ssl/certs"
+            "/etc/fonts"
+          ];
 
-        sockets.wayland = true;
-        sockets.pipewire = true;
-        sockets.pulse = true;
-        sockets.bus = true;
+          sockets.wayland = true;
+          sockets.pipewire = true;
+          sockets.pulse = true;
+        };
+
+        dbus.enable = true;
+        dbus.policies = {
+          "org.freedesktop.Notifications" = "talk";
+          "org.freedesktop.portal.*" = "talk";
+        };
       };
-    };
   };
 in
 {
-  home.packages = [ telegram.pkg ];
+  home.packages = [ telegram.config.script ];
 }
