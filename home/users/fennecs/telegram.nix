@@ -30,6 +30,7 @@ let
             (sloth.concat' sloth.homeDir "/.config/gtk-4.0")
             "/etc/ssl/certs"
             "/etc/fonts"
+            "/etc/localtime"
           ];
 
           sockets.wayland = true;
@@ -46,5 +47,14 @@ let
   };
 in
 {
-  home.packages = [ telegram.config.script ];
+  home.packages = [ telegram.config.script ]; 
+  
+  xdg.desktopEntries.telegram = {
+    name = "Telegram";
+    exec = "Telegram %u";
+    icon = "telegram";
+    terminal = false;
+    categories = [ "Network" "InstantMessaging" ];
+    mimeType = [ "x-scheme-handler/tg" ];
+  };
 }
