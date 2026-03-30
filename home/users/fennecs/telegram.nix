@@ -47,14 +47,17 @@ let
   };
 in
 {
-  home.packages = [ telegram.config.script ]; 
-  
+  home.packages = [ telegram.config.script ];
+
   xdg.desktopEntries.telegram = {
     name = "Telegram";
     exec = "Telegram %u";
     icon = "telegram";
     terminal = false;
-    categories = [ "Network" "InstantMessaging" ];
+    categories = [
+      "Network"
+      "InstantMessaging"
+    ];
     mimeType = [ "x-scheme-handler/tg" ];
   };
 }

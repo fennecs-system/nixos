@@ -11,54 +11,9 @@
   imports = [
     ./sway
     ./telegram.nix
+    ./theme.nix
     #./firefox.nix
   ];
-
-  catppuccin = {
-    vscode = {
-      profiles."Default".accent = "pink";
-      profiles."Default".enable = true;
-      profiles."Default".flavor = "mocha";
-    };
-
-    enable = true;
-    flavor = "mocha";
-    accent = "pink";
-
-    waybar = {
-      enable = true;
-      flavor = "mocha";
-    };
-
-    sway = {
-      enable = true;
-      flavor = "mocha";
-    };
-
-    wezterm = {
-      enable = true;
-      flavor = "mocha";
-      apply = true;
-    };
-
-    fish = {
-      enable = true;
-      flavor = "mocha";
-    };
-
-    vesktop = {
-      enable = true;
-      flavor = "mocha";
-      accent = "pink";
-    };
-
-    firefox = {
-      enable = true;
-      flavor = "mocha";
-      accent = "pink";
-      force = true;
-    };
-  };
 
   programs.firefox.enable = true;
   programs.vesktop.enable = true;
@@ -71,7 +26,7 @@
       version = pkgs.vscodium.version;
       paths = [
         (pkgs.vscode-with-extensions.override {
-	        vscode = pkgs.vscodium;
+          vscode = pkgs.vscodium;
           vscodeExtensions = with pkgs.vscode-extensions; [
             jnoortheen.nix-ide
             elixir-lsp.vscode-elixir-ls
@@ -92,20 +47,6 @@
       postBuild = ''
         wrapProgram $out/bin/codium --add-flags "--disable-gpu"
       '';
-    };
-  };
-
-  gtk = {
-    enable = true;
-
-    gtk3.extraConfig = {
-      gtk-application-prefer-dark-theme = true;
-      gtk-decoration-layout = ":";
-    };
-
-    gtk4.extraConfig = {
-      gtk-application-prefer-dark-theme = true;
-      gtk-decoration-layout = ":";
     };
   };
 
