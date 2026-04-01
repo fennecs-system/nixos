@@ -101,4 +101,15 @@
       fish_add_path $HOME/.cargo/bin
     '';
   };
+
+  # gnome remote desktop
+  dconf.settings = {
+    "org/gnome/desktop/remote-desktop/rdp" = {
+      enable = true;
+      view-only = false;
+      screen-share-mode = "mirror-primary"; # or "extend"
+      tls-cert = "/home/fennecs/.local/share/gnome-remote-desktop/rdp-tls.crt";
+      tls-key = "/home/fennecs/.local/share/gnome-remote-desktop/rdp-tls.key";
+    };
+  };
 }

@@ -98,6 +98,12 @@ in
     package = swayfx;
   };
 
+  # 
+  # gnome remote desktop 
+  services.gnome.gnome-remote-desktop.enable = true;
+  networking.firewall.allowedTCPPorts = [ 3389 ];
+  # 
+  # 
 
   systemd.targets.sleep.enable = false;
   systemd.targets.suspend.enable = false;
