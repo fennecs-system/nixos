@@ -9,6 +9,8 @@ let
     inherit (pkgs) lib;
     inherit pkgs;
   };
+  
+  flatpak.appId = "org.telegram.desktop";
 
   telegram = mkNixPak {
     config =

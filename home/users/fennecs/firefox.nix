@@ -8,12 +8,15 @@ let
   firefox = mkNixPak {
     config = { sloth, ... }: {
       app.package = pkgs.firefox;
+      
+      flatpak.appId = "org.mozilla.firefox";
 
       bubblewrap = {
         network = true;
 
         bind.rw = [
           (sloth.concat' sloth.homeDir "/.mozilla")
+          (sloth.concat' sloth.homeDir "/.cache/mozilla")
           (sloth.concat' sloth.homeDir "/Downloads")
         ];
 
@@ -78,5 +81,9 @@ in
       "x-scheme-handler/http"
       "x-scheme-handler/https"
     ];
+    settings = {
+      StartupWMClass = "firefox";
+      StartupNotify = "true";
+    };
   };
 }
