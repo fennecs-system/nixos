@@ -24,6 +24,7 @@ let
           (sloth.concat' sloth.homeDir "/.config/fontconfig")
           (sloth.concat' sloth.homeDir "/.config/gtk-3.0")
           (sloth.concat' sloth.homeDir "/.config/gtk-4.0")
+          (sloth.concat' (sloth.env "XDG_RUNTIME_DIR") "/doc")
           "/etc/ssl/certs"
           "/etc/static"
           "/etc/fonts"
@@ -82,7 +83,7 @@ in
       "x-scheme-handler/https"
     ];
     settings = {
-      StartupWMClass = "firefox";
+      StartupWMClass = "org.mozilla.firefox";
       StartupNotify = "true";
     };
   };
