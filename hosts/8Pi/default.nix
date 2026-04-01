@@ -101,7 +101,6 @@ in
   # 
   # gnome remote desktop 
   services.gnome.gnome-remote-desktop.enable = true;
-  networking.firewall.allowedTCPPorts = [ 3389 ];
   # 
   # 
 
@@ -130,8 +129,29 @@ in
     jack.enable = true;
   };
 
+  # tailscale + mullvad
+
   services.mullvad-vpn.enable = true;
   services.mullvad-vpn.package = pkgs.mullvad-vpn;
+
+  services.tailscale.enable = true;
+  networking.nftables.enable = true;
+
+  networking.firewall = {
+    enable = true;
+    # Trust all tailscale traffic implicitly
+    trustedInterfaces = [ "tailscale0" ];
+    allowedUDPPorts = [ config.services.tailscale.port ];
+  };
+
+  # Force nftables backend - avoids conflicts with Mullvad which also touches firewall rules
+  systemd.services.tailscaled.serviceConfig.Environment = [
+    "TS_DEBUG_FIREWALL_MODE=nftables"
+  ];
+
+  # Faster boot (optional but recommended when using VPNs)
+  systemd.network.wait-online.enable = false;
+  boot.initrd.systemd.network.wait-online.enable = false;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
 
@@ -190,8 +210,4 @@ in
     NIXOS_OZONE_WL = "1";
   };
 
-  networking.firewall.enable = true;
-  # networking.firewall = {
-  #  allowedTCPPorts = [ 25565 ];
-  # };
 }
