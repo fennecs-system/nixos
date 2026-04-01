@@ -89,8 +89,8 @@ in
 
   # ssd
   services.fstrim.enable = true;
-  services.gnome.gnome-keyring.enable = true; 
-  
+  services.gnome.gnome-keyring.enable = true;
+
   programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
@@ -98,11 +98,11 @@ in
     package = swayfx;
   };
 
-  # 
-  # gnome remote desktop 
+  #
+  # gnome remote desktop
   # services.gnome.gnome-remote-desktop.enable = true;
-  # 
-  # 
+  #
+  #
 
   systemd.targets.sleep.enable = false;
   systemd.targets.suspend.enable = false;
@@ -115,7 +115,7 @@ in
 
   security.rtkit.enable = true;
   # Enable sound.
-  
+
   services.pulseaudio.enable = false;
   services.flatpak.enable = true;
 
@@ -142,6 +142,13 @@ in
     # Trust all tailscale traffic implicitly
     trustedInterfaces = [ "tailscale0" ];
     allowedUDPPorts = [ config.services.tailscale.port ];
+
+    # block default rustdesk relay ports on all interfaces except tailscale
+    # rust uses 21115-21119
+    extraInputRules = ''
+      iifname != "tailscale0" tcp dport { 21115, 21116, 21117, 21118, 21119 } drop
+      iifname != "tailscale0" udp dport 21116 drop
+    '';
   };
 
   # Force nftables backend - avoids conflicts with Mullvad which also touches firewall rules
