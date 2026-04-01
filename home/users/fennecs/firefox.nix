@@ -31,7 +31,6 @@ let
         sockets.wayland = true;
         sockets.pipewire = true;
         sockets.pulse = true;
-        devices.camera = true;
       };
 
       dbus.enable = true;
