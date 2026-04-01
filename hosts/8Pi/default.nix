@@ -100,7 +100,7 @@ in
 
   # 
   # gnome remote desktop 
-  services.gnome.gnome-remote-desktop.enable = true;
+  # services.gnome.gnome-remote-desktop.enable = true;
   # 
   # 
 
@@ -178,6 +178,7 @@ in
   };
 
   environment.systemPackages = with pkgs; [
+    rustdesk
     nano
     reaper
     wget
