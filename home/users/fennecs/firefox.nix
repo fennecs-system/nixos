@@ -22,6 +22,7 @@ let
           (sloth.concat' sloth.homeDir "/.config/gtk-3.0")
           (sloth.concat' sloth.homeDir "/.config/gtk-4.0")
           "/etc/ssl/certs"
+          "/etc/static"
           "/etc/fonts"
           "/etc/localtime"
           "/dev/yubikey"
@@ -43,22 +44,22 @@ let
   };
 in
 {
-  home.activation.protectMozilla = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    chmod 700 $HOME/.mozilla
-  '';
+  # home.activation.protectMozilla = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+  #   chmod 700 $HOME/.mozilla
+  # '';
 
-  # Only use programs.firefox for the catppuccin theme injection
-  programs.firefox = {
-    enable = true;
-    package = pkgs.firefox; # real package so HM can find profiles
-  };
+  # # Only use programs.firefox for the catppuccin theme injection
+  # programs.firefox = {
+  #   enable = true;
+  #   package = null; # real package so HM can find profiles
+  # };
 
-  catppuccin.firefox = {
-    enable = true;
-    flavor = "mocha";
-    accent = "pink";
-    force = true;
-  };
+  # catppuccin.firefox = {
+  #   enable = true;
+  #   flavor = "mocha";
+  #   accent = "pink";
+  #   force = true;
+  # };
 
   # Sandboxed binary in the path and as desktop entry
   home.packages = [ firefox.config.script ];
