@@ -12,10 +12,9 @@
     ./sway
     ./telegram.nix
     ./theme.nix
-    #./firefox.nix
+    ./firefox.nix
   ];
 
-  programs.firefox.enable = true;
   programs.vesktop.enable = true;
 
   programs.vscode = {
@@ -88,6 +87,8 @@
     # easyeffects
     git
     haskellPackages.pointfree
+    pinta
+    # broken by boost 
     # krita
   ];
 

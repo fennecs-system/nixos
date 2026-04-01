@@ -29,10 +29,10 @@
     vesktop.flavor = "mocha";
     vesktop.accent = "pink";
 
-    firefox.enable = true;
-    firefox.flavor = "mocha";
-    firefox.accent = "pink";
-    firefox.force = true;
+    # firefox.enable = true;
+    # firefox.flavor = "mocha";
+    # firefox.accent = "pink";
+    # firefox.force = true;
   };
 
   gtk = {
